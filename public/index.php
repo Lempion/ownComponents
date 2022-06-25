@@ -1,5 +1,14 @@
 <?php
+include "../components/Router.php";
 
-echo '<pre>';
-print_r($_SERVER);
-echo '</pre>';
+$router = new Router();
+$path = $router->findRoute($_SERVER['REQUEST_URI']);
+
+if ($path) {
+    include __DIR__ . "/../head/head.php";
+    include __DIR__ . "/../" . $path;
+    exit();
+} else {
+    include __DIR__ . "/../notFound.php";
+}
+
