@@ -1,5 +1,6 @@
 <?php
 include "../components/Router.php";
+$queryBuilder = include "../components/start.php";
 
 $router = new Router();
 $path = $router->findRoute($_SERVER['REQUEST_URI']);
