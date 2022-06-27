@@ -6,7 +6,8 @@ class Router
     public $paths = [
         "/" => "module/home_m.php",
         "/edit" => "module/edit_m.php",
-        "/create" => "module/create_m.php"
+        "/create" => "module/create_m.php",
+        "/remove" => "module/remove_m.php"
     ];
 
     public function findRoute($url)
