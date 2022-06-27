@@ -10,6 +10,11 @@ class QueryBuilder
         $this->pdo = $pdo;
     }
 
+    /**
+     * @param $table - наименование таблицы
+     * @param $data - данные для добавления в БД
+     * @return mixed
+     */
     public function create($table, $data)
     {
         $keys = array_keys($data);
@@ -22,6 +27,12 @@ class QueryBuilder
         return $stmt->execute($data);
     }
 
+    /**
+     * @param $table - наименование таблицы
+     * @param $data - данные для обновления записи
+     * @param $id - идентификатор записи
+     * @return mixed
+     */
     public function edit($table, $data, $id)
     {
         foreach ($data as $key => $value) {
@@ -38,6 +49,11 @@ class QueryBuilder
 
     }
 
+    /**
+     * @param $table - наименование таблицы
+     * @param $id - идентификатор записи
+     * @return mixed
+     */
     public function remove($table, $id)
     {
         $sql = "DELETE FROM {$table} WHERE id=:id";
@@ -45,12 +61,21 @@ class QueryBuilder
         return $stmt->execute(['id' => $id]);
     }
 
+    /**
+     * @param $table - наименование таблицы откуда получить все записи
+     * @return mixed
+     */
     public function getAll($table)
     {
         $sql = "SELECT * FROM {$table}";
         return $this->pdo->query($sql);
     }
 
+    /**
+     * @param $table - наименование таблицы для получения данных
+     * @param $id - идентификатор конкретной записи
+     * @return mixed
+     */
     public function getOne($table, $id)
     {
         $sql = "SELECT * FROM {$table} WHERE id=:id";
