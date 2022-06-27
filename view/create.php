@@ -1,1 +1,19 @@
-<h1>Create</h1>
+<main class="container px-5 py-15">
+    <form method="post" action="../create">
+
+        <h1 class="h3 mb-3 mt-3 fw-normal">Создание заметки</h1>
+
+        <div class="form-floating mb-2">
+            <input type="text" class="form-control" id="floatingInput" placeholder="Название" name="title">
+            <label for="floatingInput">Название</label>
+        </div>
+        <div class="form-floating mb-2">
+            <input type="text" class="form-control" id="floatingText" placeholder="Текст" name="text">
+            <label for="floatingText">Текст</label>
+        </div>
+
+
+        <button class="w-100 btn btn-lg btn-primary" type="submit">Сохранить</button>
+
+    </form>
+</main>
